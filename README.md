@@ -6,13 +6,13 @@ This C++ file is an implementation of the encryption algorithm Triple Data Encry
 
 ## How to run:
 
-To run the project you would run the file `build.sh` that would generate the executable `test` and runs it. 
+To run the project you would run the file `build.sh` that would generate the executable `test` and run it. 
 
-*Note: `build.sh` uses clang, if you are not using a unix system this file will not allow you to compile.*
+*Note: `build.sh` uses clang, if you are not using a Unix system this file will not allow you to compile.*
 
 ## How to use:
 
-The file includes a class named `TripleDES` that contains multiple methods to modify data. To encrypt or decrypt, you need 3 different 128 bit keys stored as hexadecimal and then a hexadecimal input that is also 128 bits long.
+The file includes a class named `TripleDES` that contains multiple methods to modify data. To encrypt or decrypt, you need 3 different 128-bit keys stored as hexadecimal and then a hexadecimal input that is also 128 bits long.
 
 ### Methods:
 
@@ -21,12 +21,12 @@ To encrypt and decrypt data, the class was reliant on multiple different methods
 - `binaryToHex`: converts binary text to hexadecimal text
 - `hexToBinary`: converts hexadecimal text to binary text
 - `applyRound`: since there are many rounds to DES this does an individual round
-- `applySubstitutionBox`: converts the inputed data based on the substituionBox array
+- `applySubstitutionBox`: converts the inputted data based on the substituionBox array
 - `shiftKeyWith`: changes the key based on the spacing needed
 - `generateModifiedKeys`: creates a huge list of all the modified keys in the rounds
 - `xorStringAddition`: combines two binary strings together in the xor format (1 + 1 == 0, 0 + 0 == 0, 1 + 0 = 1)
-- `permutate`: this is the function used to rearange data based on an array
-- `reverse`: this reverses an array (primarily used for decryption because it's the same as encryption but backwards)
+- `permutate`: this is the function used to rearrange data based on an array
+- `reverse`: this reverses an array (primarily used for decryption because it's the same as encryption but backward)
 - `encrypt`: this encrypts the data using the symmetric 3 keys
 - `decrypt`: this decrypts the data using the symmetric 3 keys
 - `singleEncrypt`: this encrypts the data using one symmetric key
@@ -34,16 +34,16 @@ To encrypt and decrypt data, the class was reliant on multiple different methods
 
 ### Substitution Boxes & Permutation:
 
-The class contains multiple different arrays that stores how data can be permutated and modified so that it is able to encrypt the data. Here's a list of all the permutation arrays from the `TripleDES` class:
+The class contains multiple different arrays that store how data can be permutated and modified so that it is able to encrypt the data. Here's a list of all the permutation arrays from the `TripleDES` class:
 
-- `keyRemove8thBits`: The permutation data for converting the key from 64 bit to 56 bit
+- `keyRemove8thBits`: The permutation data for converting the key from 64-bit to 56-bit
 - `shiftKeyTable`: The amount of keys that move
-- `keyCompressionArray`: The permutation data for converting the key from 56 bit to 48 bit
-- `initialPermutation`: the table of how the 64 bits are mangled in the begining of the conversion
+- `keyCompressionArray`: The permutation data for converting the key from 56-bit to 48-bit
+- `initialPermutation`: the table of how the 64 bits are mangled in the beginning of the conversion
 - `expandingDataFrom32to48`: The permutation data for expanding the data from 32 bits to 48 bits
 - `shrinkingDataFrom48to32`: The permutation data for shrinking the data from 48 bits to 32 bits
-- `substituionBox`: Substituion Box Table to change the data from one to the other
-- `finalPermutation`: the table of how the 64 bits are mangled in the end of the conversion
+- `substituionBox`: Substitution Box Table to change the data from one to the other
+- `finalPermutation`: the table of how the 64 bits are mangled at the end of the conversion
 
 Here is an example of how a substitution box can be used:
 
@@ -54,7 +54,7 @@ Here is an example of how a substitution box can be used:
 ### Core Functions:
 
 To encrypt the whole data you would do the following:
-```c_cpp
+```c++
 string text = "123456ABCD132536";
 // this is the the input data
 
@@ -79,7 +79,7 @@ cout << text << endl;
 // prints 123456ABCD132536
 ```
 
-- *Note: All the data above is represented as hexademical strings.*
+- *Note: All the data above is represented as hexadecimal strings.*
 
 Using the encrypting and decrypting functions will also print all the rounds that are being produced as the rounds are being accomplished and separately for every key that is being used. 
 
@@ -112,7 +112,7 @@ ENCRYPTED DATA:C0B7A8D05F3A829C
 
 Here are the methods to convert hexadecimal to binary and the vice versa:
 
-```c_cpp
+```c++
 cout << des->hexToBinary("F98FA3210FBC228A") << endl;
 // prints 1111100110001111101000110010000100001111101111000010001010001010
 
@@ -120,14 +120,14 @@ cout << des->binaryToHex("111110011000111110100011001000010000111110111100001000
 // prints F98FA3210FBC228A
 ```
 
-Here is exclusive or operation:
-```c_cpp
+Here is the exclusive or operation:
+```c++
 cout << des->xorStringAddition("001001", "011101") << endl;
 // prints 010100
 ```
 
 Here are some examples of permutation and shifting bits:
-```c_cpp
+```c++
 cout << des->shiftKeyWith("0100101", 1) << endl;
 // prints 1001010
 
@@ -139,7 +139,7 @@ cout << des->permutate("11111001100011111010001100100001000011111011110000100010
 
 Here are the core sources of my research I used to understand this algorithm.
 
-*NOTE: All the pictures we're created by me*
+*NOTE: All the pictures were created by me*
 
 - [GeeksForGeeks](www.geeksforgeeks.org/data-encryption-standard-des-set-1/): www.geeksforgeeks.org/data-encryption-standard-des-set-1/
 - [Data Encryption Standard:cs.mcgill.ca](www.cs.mcgill.ca/~rwest/wikispeedia/wpcd/wp/d/Data_Encryption_Standard.htm): www.cs.mcgill.ca/~rwest/wikispeedia/wpcd/wp/d/Data_Encryption_Standard.htm
