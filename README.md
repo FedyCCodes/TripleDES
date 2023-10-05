@@ -47,7 +47,7 @@ The class contains multiple different arrays that store how data can be permutat
 
 Here is an example of how a substitution box can be used:
 
-![](.github_images/data-permutation.png)
+![](github_images/data-permutation.png)
 
 ## Sample Inputs and Outputs:
 
