@@ -2,8 +2,8 @@
 //  TripleDES.cpp
 //  Triple DES
 //
-//  Created by Fedy Cherif on 7/11/21.
-//  Copyright © 2021 Fedy Cherif. All rights reserved.
+//  Created by Fedy C. on 7/11/21.
+//  Copyright © 2021 Fedy C. All rights reserved.
 //
 
 #include <iostream>
